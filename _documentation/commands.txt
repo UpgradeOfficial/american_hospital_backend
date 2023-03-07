@@ -1,0 +1,17 @@
+1. py manage.py send_test_emails --to <email_address> => Send email all email template to the email email_address
+2. py manage.py runserver => Start the server on the local
+3. py -m celery -A <app_name/celery_setting_folder_name> worker -l info -P solo => Start the celery server
+4. py manage.py create_school <num_of_school> => This is used to create test school in the server for testing
+5. docker build --tag python-django .
+6. docker run --publish 8000:8000 python-django
+
+7. isort . => from flake8-isort to sort your imports using pep8 standards
+8. pre-commit run --all-files => check if your files are following the PEP8 standard
+9. python manage.py graph_models --pydot -a -g -o TheSchoolProjectAPI_model_relationship.png => this command generate the graph of the models
+10. from django.core.management.utils import random_secret_key => this random_secret_key() will generate 50 char secret key
+
+11. tree -I venv > diagram.txt >  this command should be run from the root of the project
+12. tree -I venv > 'venv|cache|test_*' => this command should be run from the root of the project and would remove the venv, cache and other folder withe a test_ in front of it.
+
+13. coverage run manage.py test  => this command should be used to get the coverage
+14. coverage html => this will get coverage report
