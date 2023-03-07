@@ -39,8 +39,6 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
         token["userInfo"] = {"email": user.email, "user_type": user.user_type}
         if not user.is_verified:
             raise exceptions.ValidationError("This is user is not verified")
-        if not user.active:
-            raise exceptions.ValidationError("This User Has Been Deactivated")
         return token
 
 

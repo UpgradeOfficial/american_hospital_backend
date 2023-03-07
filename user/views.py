@@ -89,3 +89,20 @@ class ChangePasswordView(generics.UpdateAPIView):
         return Response(
             status=status.HTTP_400_BAD_REQUEST, data={"message": "bad request"}
         )
+
+
+class ConfirmEmailView(APIView):
+    permission_classes = [AllowAny]
+
+    def post(self, request, *args, **kwargs):
+        token = request.data.get("token")
+        decoded_data = ExpiringActivationTokenGenerator().get_token_value(token)
+        email = decoded_data
+        user = get_object_or_404(User, email=email)
+        user.is_verified = True
+        user.is_active = True
+        user.active = True
+        user.save()
+        return Response(
+            status=status.HTTP_200_OK, data={"message": "Email Verification successful"}
+        )
