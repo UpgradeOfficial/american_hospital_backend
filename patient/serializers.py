@@ -21,21 +21,20 @@ class PatientRegistrationSerializer(UserRegistrationSerializer):
             "last_name",
             "password",
             "email",
-            "street",
-            "state",
-            "city",
-            "region",
-            "country",
             "contact_no",
-            "date_of_birth",
-            "gender",
-            "image",
+            # "street",
+            # "state",
+            # "city",
+            # "region",
+            # "country",
+            # "date_of_birth",
+            # "gender",
+            # "image",
             # patient fields
         ]
         fields = write_only_fields
 
     def create(self, validated_data):
-        validated_data["user_type"] = User.UserType.PATIENT
         user = super().create(validated_data)
         Patient.objects.create(user=user)
         return user

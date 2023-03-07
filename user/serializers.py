@@ -11,7 +11,20 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        exclude = ["groups", "user_permissions", "is_staff"] + User.get_hidden_fields()
+        exclude = [
+            "groups",
+            "user_permissions",
+            "is_staff",
+            # "user_login_token",
+            # "street",
+            # "state",
+            # "city",
+            # "country",
+            # "region",
+            # "date_of_birth",
+            # "gender",
+            # "image"
+        ] + User.get_hidden_fields()
         read_only_fields = ("is_active",)
         extra_kwargs = {
             "user_type": {"read_only": True},
@@ -22,7 +35,7 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
         return verify_valid_mail(email)
 
     def create(self, validated_data):
-        password = validated_data.pop("password", None)
+        password = validated_data.get("password", None)
         user = super().create(validated_data)
         if password is None:
             raise serializers.ValidationError("You did not provide a valid password")
