@@ -6,4 +6,4 @@ from user.models import User
 
 
 class Patient(CoreModel):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)

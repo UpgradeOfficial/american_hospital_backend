@@ -165,7 +165,7 @@ class User(AbstractUser, CoreModel):
                     confirmation_token.decode("utf-8"),
                 ]
             )
-            + "?token=this-dont-care"
+            # + "?token=this-dont-care"
         )
         send_mail(
             to_email=self.email,

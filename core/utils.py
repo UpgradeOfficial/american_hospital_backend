@@ -80,4 +80,5 @@ def send_mail(
     msg.attach_alternative(email_html_message, "text/html")
     if file is not None:
         msg.attach("attached_file.png", file, "image/png")
+    print("sending maaill........................................")
     msg.send()
