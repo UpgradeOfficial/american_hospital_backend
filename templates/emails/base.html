@@ -1,27 +1,98 @@
 <!DOCTYPE html>
-
-<html
-  lang="en"
-  xmlns:o="urn:schemas-microsoft-com:office:office"
-  xmlns:v="urn:schemas-microsoft-com:vml"
->
-  <head>
-    <title>{{app_name}}</title>
-    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
-      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-      crossorigin="anonymous"
-    />
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">  
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Email</title>
   </head>
   <body>
-    {% block content %} {% endblock content %}
-    <!-- ======= Footer ======= -->
-    <footer id="footer">
-      <div className="footer-top">Footer</div>
-    </footer>
-    <!-- End Footer -->
+     
+        <img src="{{STATIC_URL}}logo.png" alt="" width="150" style="display: block; width: 100%; height:auto; max-width:150px;">
+  
+      <p style="text-align: center;">
+            {% block content%}
+            {% endblock %}
+            
+      </p>
+
+    Best Regards,<br>
+   American Hospital
+    
+  
+  <table width="100%" border="0" cellpadding="0" cellspacing="0" style="display: flex; flex-direction: column; align-items: left;
+      color: #fff;
+      font-family: Arial, Helvetica, sans-serif;
+      width: 100%; 
+      background-color:#1A0545;">
+<tr>
+  <td style="width:15%;">  <span style="font-size: 12px;">Connect with us on: </span></td>
+  <td style="width:25%" >  
+  <img src="{{STATIC_URL}}phoneicon.png" width="15" alt="phone" 
+  style="width: 100%;
+  height: 15%; 
+  margin-right:10px;
+  max-width: 15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 15px;"/> <span style="font-size: 12px;"> 234(0) </span>  </td>
+  
+  <td style="width:15%; color:#FFFFFF"> 
+  <img src="{{STATIC_URL}}envelope.png" width="15" alt="envelope" 
+  style="width:100%;
+  margin-right: 5px;
+  display: inline-flex;
+  justify-content: flex-start;
+  max-width: 15px;
+  align-items: center;
+  margin-top: 12px;" />
+  <a href="mailto:info@americanhospital.com" style="display:inline-block; color:#FFFFFF"><span style="font-size:12px; color: #FFFFFF; text-decoration: none">&nbsp;&nbsp;<font color="#FFFFFF">info@americanhospital.com</font></span></a>
+  </td>
+  
+  <td>
+  <a href="#" style="display: inline;">
+  <img src="{{STATIC_URL}}flogo.png" alt="message" width="25" 
+  style="width: 100%;
+  height: 15%;
+  margin-right: 10px;
+  display: inline-flex;
+  max-width: 25px;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 12px; 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;"/>
+  </a>
+
+  <a href="#" style="display: inline;">
+  <img src="{{STATIC_URL}}ilogo.png" alt="" width="25" 
+  style="width: 100%;
+  margin-right: 10px;
+  display: inline-flex;
+  align-items: center;
+  max-width: 25px;
+  justify-content: flex-start;
+  margin-top: 12px;" />
+  </a>
+
+  <a href="#" style="display: inline;">
+  <img src="{{STATIC_URL}}ylogo.png" alt="" width="25" style="width: 100%;
+  height: 15%;
+  margin-right: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 12px;
+  max-width: 25px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;";/>
+  </a>
+  </td>
+</tr>
+</table>
+
   </body>
 </html>

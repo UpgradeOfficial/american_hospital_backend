@@ -1,24 +1,27 @@
 {% extends 'emails/base.html' %}
-{% block content %}
-  <center>
-     
-   <h1>Hello {{name}}<h1>
 
-Are you ready to gain access to all of the assets we prepared for clients of TSP?
+{% block content%}
+<center>
+<p class="x_MsoNormal" align="center" style="text-align:center"><b><span style="font-size:22.0pt; color:black">Welcome!</span></b></p>
+<p class="x_MsoNormal" align="center" style="text-align:center"><span style="font-size:16.0pt; color:black">
+	Thank you for registering with us.
+</span></p>
 
-First, you must complete your registration by clicking on the button below:
+<p class="x_MsoNormal" align="center" style="text-align:center"><span style="font-size:16.0pt; color:black">
+	Before you can use your account, you need to verify your email address by clicking this link : </span>
+</span></p>
+<p class="x_MsoNormal" align="center" style="text-align:center"><b><span style="font-size:14.0pt; color:#00B0F0">
+	<a href="{{link}}" target="_blank">	<span style="font-size:16.0pt; color:#00B0F0; border:none windowtext 1.0pt; padding:0in">
+		Confirm Account</span></a></span></b><span style="font-size:16.0pt; color:black"></span></p>
 
-<a href="{{link}}">Click Here</a>
+<p align="center" style="text-align:center; line-height:18.75pt; background:white">
 
-This link will verify your email address, and then you'll officially be a part of the TSP community.
+<span style="font-size:16.0pt; color:black">
+	If the link does not work, copy and paste the web address below into your browser to confirm your email address.
+</span></p>
 
-<br><br>
-<p>{{link}}</p>
-If you have problems, please paste the above URL into your web browser.
+	<p>{{link}}
 
-See you there!
+</center>
+{% endblock%}
 
-Best regards, The Success Team
-
-  </center>
-{% endblock %}

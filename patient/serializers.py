@@ -10,6 +10,8 @@ from rest_framework.serializers import (
     ChoiceField,
     FileField,
 )
+from .validators import verify_valid_mail
+
 
 
 class PatientRegistrationSerializer(UserRegistrationSerializer):
@@ -34,11 +36,17 @@ class PatientRegistrationSerializer(UserRegistrationSerializer):
         ]
         fields = write_only_fields
 
+    def validate_email(self, email):
+        return verify_valid_mail(email)
+    
     def create(self, validated_data):
         user = super().create(validated_data)
         Patient.objects.create(user=user)
+        try:
+            user.send_email_verification_mail()
+        except Exception as e:
+            pass
         return user
-
 
 class PatientProfileDetailsSerializer(ModelSerializer):
     first_name = CharField(source="user.first_name", required=False, allow_null=True)

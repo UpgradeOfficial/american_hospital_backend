@@ -169,7 +169,7 @@ class User(AbstractUser, CoreModel):
         )
         send_mail(
             to_email=self.email,
-            subject=f"Verify User Account {self.email}",
+            subject=f"Verify User Account {self.full_name}",
             template_name=template,
             input_context={
                 "name": self.full_name,
