@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">  
 <head>
@@ -8,8 +9,8 @@
   </head>
   <body>
      
-        <img src="{{STATIC_URL}}logo.png" alt="" width="150" style="display: block; width: 100%; height:auto; max-width:150px;">
-  
+        <img src="{% static 'emails/logo.png' %}" alt="" width="150" style="display: block; width: 100%; height:auto; max-width:150px;">
+      
       <p style="text-align: center;">
             {% block content%}
             {% endblock %}
@@ -28,7 +29,7 @@
 <tr>
   <td style="width:15%;">  <span style="font-size: 12px;">Connect with us on: </span></td>
   <td style="width:25%" >  
-  <img src="{{STATIC_URL}}phoneicon.png" width="15" alt="phone" 
+  <img src="{% static 'emails/phoneicon.png' %}" width="15" alt="phone" 
   style="width: 100%;
   height: 15%; 
   margin-right:10px;
@@ -39,7 +40,7 @@
   margin-top: 15px;"/> <span style="font-size: 12px;"> 234(0) </span>  </td>
   
   <td style="width:15%; color:#FFFFFF"> 
-  <img src="{{STATIC_URL}}envelope.png" width="15" alt="envelope" 
+  <img src="{% static 'emails/envelope.jpeg' %}" width="15" alt="envelope" 
   style="width:100%;
   margin-right: 5px;
   display: inline-flex;
@@ -52,7 +53,7 @@
   
   <td>
   <a href="#" style="display: inline;">
-  <img src="{{STATIC_URL}}flogo.png" alt="message" width="25" 
+  <img src="{% static 'emails/flogo.png' %}" alt="message" width="25" 
   style="width: 100%;
   height: 15%;
   margin-right: 10px;
@@ -67,7 +68,7 @@
   </a>
 
   <a href="#" style="display: inline;">
-  <img src="{{STATIC_URL}}ilogo.png" alt="" width="25" 
+  <img src="{% static 'emails/ilogo.png' %}" alt="" width="25" 
   style="width: 100%;
   margin-right: 10px;
   display: inline-flex;
@@ -78,7 +79,7 @@
   </a>
 
   <a href="#" style="display: inline;">
-  <img src="{{STATIC_URL}}ylogo.png" alt="" width="25" style="width: 100%;
+  <img src="{% static 'emails/ylogo.png' %}" alt="" width="25" style="width: 100%;
   height: 15%;
   margin-right: 10px;
   display: inline-flex;

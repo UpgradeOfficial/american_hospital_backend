@@ -61,24 +61,25 @@ def send_mail(
     Send Activation Email To User
     """
     # base_url = input_context.get("host_url", Site.objects.get_current().domain)
+    try:
+        context = {
+            "site": "dokto",
+            "MEDIA_URL": settings.STATIC_URL[:-1],
+            **input_context,
+        }
 
-    context = {
-        "site": "dokto",
-        "MEDIA_URL": settings.STATIC_URL[:-1],
-        **input_context,
-    }
+        # render email text
+        email_html_message = render_to_string(template_name, context)
 
-    # render email text
-    email_html_message = render_to_string(template_name, context)
-
-    msg = EmailMultiAlternatives(
-        subject=subject,
-        body=email_html_message,
-        from_email=settings.INFO_EMAIL if is_info_mail else settings.SUPPORT_EMAIL,
-        to=[to_email],
-    )
-    msg.attach_alternative(email_html_message, "text/html")
-    if file is not None:
-        msg.attach("attached_file.png", file, "image/png")
-    print("sending maaill........................................")
-    msg.send()
+        msg = EmailMultiAlternatives(
+            subject=subject,
+            body=email_html_message,
+            from_email=settings.INFO_EMAIL if is_info_mail else settings.SUPPORT_EMAIL,
+            to=[to_email],
+        )
+        msg.attach_alternative(email_html_message, "text/html")
+        if file is not None:
+            msg.attach("attached_file.png", file, "image/png")
+        msg.send()
+    except Exception as e:
+        logging.error(f"{str(e)} ==> Failed to send email to {to_email}")

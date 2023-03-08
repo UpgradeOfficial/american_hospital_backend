@@ -157,15 +157,12 @@ class User(AbstractUser, CoreModel):
             text=self.email
         )
 
-        link = (
-            "/".join(
-                [
-                    settings.FRONTEND_URL,
-                    "email-verification",
-                    confirmation_token.decode("utf-8"),
-                ]
-            )
-            # + "?token=this-dont-care"
+        link = "/".join(
+            [
+                settings.FRONTEND_URL,
+                "email-verification",
+                confirmation_token.decode("utf-8"),
+            ]
         )
         send_mail(
             to_email=self.email,

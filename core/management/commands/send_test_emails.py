@@ -3,7 +3,11 @@ from django.core.management.base import BaseCommand
 from django.db import transaction
 
 from user.models import User
-from user.tasks import send_password_reset_mail_async
+from user.tasks import (
+    send_password_reset_mail_async,
+    send_email_verification_mail_async,
+)
+from user.factories import UserFactory
 
 
 @transaction.atomic
@@ -26,11 +30,11 @@ class Command(BaseCommand):
             email=to,
             defaults={
                 "password": make_password("aaaaaaaaaa"),
-                "user_type": User.UserType.STUDENT,
+                "user_type": User.UserType.PATIENT,
                 "country": "Nigeria",
                 "first_name": "test user",
             },
         )
-        # send_email_verification_mail_async(user_id=user.id)
-        send_password_reset_mail_async(user_id=user.id)
+        send_email_verification_mail_async(user_id=user.id)
+        # send_password_reset_mail_async(user_id=user.id)
         self.stdout.write(self.style.SUCCESS(f"All emails send successfully to {to}"))

@@ -23,6 +23,7 @@ from drf_spectacular.views import (
 from django.conf import settings
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.views.static import serve
+from django.conf.urls.static import static
 
 urlpatterns = [
     path(
@@ -49,6 +50,6 @@ urlpatterns = [
     path(settings.BACKEND_ADMIN_URL, admin.site.urls),
     path("user/", include(("user.urls", "user"), namespace="user")),
     path("patient/", include(("patient.urls", "patient"), namespace="patient")),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 urlpatterns += staticfiles_urlpatterns()
