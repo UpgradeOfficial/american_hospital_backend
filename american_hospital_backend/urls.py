@@ -51,6 +51,10 @@ urlpatterns = [
     path("user/", include(("user.urls", "user"), namespace="user")),
     path("news/", include(("news.urls", "news"), namespace="news")),
     path("patient/", include(("patient.urls", "patient"), namespace="patient")),
+    path(
+        "testimonial/",
+        include(("testimonial.urls", "testimonial"), namespace="testimonial"),
+    ),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 urlpatterns += staticfiles_urlpatterns()

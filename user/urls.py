@@ -19,7 +19,7 @@ urlpatterns = [
         name="initiate_password_reset",
     ),
     path(
-        "password-reset/",
+        "complete-password-reset/",
         views.PasswordResetView.as_view(),
         name="complete_password_reset",
     ),

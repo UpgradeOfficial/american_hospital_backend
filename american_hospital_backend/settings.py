@@ -55,7 +55,8 @@ INSTALLED_APPS = [
     "core",
     "user",
     "patient",
-    "news",
+    "testimonial",
+    "administrator",
 ]
 
 MIDDLEWARE = [

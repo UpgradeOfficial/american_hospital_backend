@@ -73,10 +73,6 @@ class ChangePasswordSerializer(serializers.Serializer):
         return data
 
 
-class PushNoticationSerializer(serializers.Serializer):
-    token = serializers.CharField(max_length=100)
-
-
 class ForgotPasswordSerializer(serializers.Serializer):
     """
     This is used to serializer the email field
@@ -116,3 +112,7 @@ class UserProfileSerializer(serializers.ModelSerializer):
             "is_disabled",
         )
         model = User
+
+
+class ConfirmEmailSerializer(serializers.Serializer):
+    token = serializers.CharField(required=True, max_length=10000)
