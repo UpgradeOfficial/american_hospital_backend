@@ -1,16 +1,27 @@
-from rest_framework.serializers import (
-    ModelSerializer,
-)
+from rest_framework import serializers
 from news.models import Category, News
 
 
-class CategoryViewSerializer(ModelSerializer):
+
+class CategoryViewSerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
         fields = "__all__"
 
 
-class NewsViewSerializer(ModelSerializer):
+class CategoryListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Category
+        fields = "__all__"     
+
+
+class NewsViewSerializer(serializers.ModelSerializer):
     class Meta:
         model = News
         fields = "__all__"
+
+
+class NewsListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = News
+        fields = "__all__" 

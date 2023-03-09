@@ -8,7 +8,7 @@ class Category(CoreModel):
     name  = models.TextField(help_text='Category Name')
 
 class News(CoreModel):
-    Category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='news')
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='category')
     title = models.TextField(help_text='News Title')
     image = models.ImageField(
         upload_to=PROFILE_PHOTO_DIRECTORY,
