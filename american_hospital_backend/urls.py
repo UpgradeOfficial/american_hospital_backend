@@ -49,6 +49,7 @@ urlpatterns = [
     ),
     path(settings.BACKEND_ADMIN_URL, admin.site.urls),
     path("user/", include(("user.urls", "user"), namespace="user")),
+    path("news/", include(("news.urls", "news"), namespace="news")),
     path("patient/", include(("patient.urls", "patient"), namespace="patient")),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
