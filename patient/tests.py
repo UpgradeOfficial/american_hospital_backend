@@ -4,6 +4,7 @@ from .factories import PatientFactory
 from .models import Patient
 from user.models import User
 from django.test import TestCase
+from administrator.factories import AdministratorFactory
 
 
 class TestPatientRegistration(TestCase):
@@ -76,6 +77,8 @@ class PatientProfileTest(TestCase):
         self.assertEqual(user.gender, data.get("gender"))
 
     def test_patient_list(self):
+        administator = AdministratorFactory()
+        self.client.force_login(administator.user)
         url = reverse("patient:listpatients")  # get url for listpatients
         response = self.client.get(url)  # get reponse
         self.assertEqual(response.status_code, 200)  # success message

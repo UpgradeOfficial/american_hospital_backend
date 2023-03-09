@@ -24,7 +24,7 @@ class PasswordResetWhitelist(CoreModel):
 class User(AbstractUser, CoreModel):
     class UserType(models.TextChoices):
         PATIENT = "PATIENT", _("patient")
-        ADMIN = "ADMIN", _("admin")
+        ADMINISTRATOR = "ADMINISTRATOR", _("administrator")
 
     class UserRegion(models.TextChoices):
         AFRICA = "AF", _("Africa")

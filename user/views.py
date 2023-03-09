@@ -1,7 +1,7 @@
 import logging
 
 from django.shortcuts import get_object_or_404
-from rest_framework import generics, permissions, status
+from rest_framework import generics, status
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -15,6 +15,7 @@ from .serializers import (
     ForgotPasswordSerializer,
     MyTokenObtainPairSerializer,
     PasswordResetSerializer,
+    ConfirmEmailSerializer,
 )
 
 # from .tasks import send_to_token_async
@@ -53,9 +54,10 @@ class InitiatePasswordResetView(APIView):
         return Response(status=status.HTTP_200_OK, data=data)
 
 
-class PasswordResetView(APIView):
+class PasswordResetView(generics.GenericAPIView):
     permission_classes = [AllowAny]
     http_method_names = ["post", "options"]
+    serializer_class = PasswordResetSerializer
 
     def post(self, request):
         # Extracting data from request and validating it
@@ -91,11 +93,14 @@ class ChangePasswordView(generics.UpdateAPIView):
         )
 
 
-class ConfirmEmailView(APIView):
+class ConfirmEmailView(generics.GenericAPIView):
     permission_classes = [AllowAny]
+    serializer_class = ConfirmEmailSerializer
 
     def post(self, request, *args, **kwargs):
-        token = request.data.get("token")
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        token = serializer.validated_data.get("token")
         decoded_data = ExpiringActivationTokenGenerator().get_token_value(token)
         email = decoded_data
         user = get_object_or_404(User, email=email)

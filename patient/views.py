@@ -3,6 +3,7 @@ from patient.models import Patient
 
 from .serializers import PatientProfileDetailsSerializer, PatientRegistrationSerializer
 from rest_framework.permissions import IsAuthenticated
+from administrator.permissions import AdministratorPermission
 
 
 class PatientRegistrationView(generics.CreateAPIView):
@@ -11,7 +12,7 @@ class PatientRegistrationView(generics.CreateAPIView):
 
 
 class PatientListView(generics.ListAPIView):
-    permission_classes = []
+    permission_classes = [AdministratorPermission]
     serializer_class = PatientProfileDetailsSerializer
 
     def get_queryset(self):
