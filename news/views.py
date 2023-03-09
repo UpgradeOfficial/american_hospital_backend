@@ -8,10 +8,10 @@ from rest_framework.permissions import IsAuthenticated
 
 
 class CategoryView(generics.CreateAPIView):
-    permission_classes =  ['IsAdminUser']
+    permission_classes =  []
     serializer_class = CategoryViewSerializer
 
 
 class NewsView(generics.CreateAPIView):
-    permission_classes = ['IsAdminUser']
+    permission_classes = []
     serializer_class = NewsViewSerializer
