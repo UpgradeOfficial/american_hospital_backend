@@ -50,6 +50,7 @@ urlpatterns = [
     path(settings.BACKEND_ADMIN_URL, admin.site.urls),
     path("user/", include(("user.urls", "user"), namespace="user")),
     path("news/", include(("news.urls", "news"), namespace="news")),
+    path("faqs/", include(("faqs.urls", "faqs"), namespace="faqs")),
     path("category/", include(("news.urls", "category"), namespace="category")),
     path("patient/", include(("patient.urls", "patient"), namespace="patient")),
     path(
