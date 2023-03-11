@@ -12,10 +12,10 @@ from core.utils import ExpiringActivationTokenGenerator
 from .models import User
 from .serializers import (
     ChangePasswordSerializer,
+    ConfirmEmailSerializer,
     ForgotPasswordSerializer,
     MyTokenObtainPairSerializer,
     PasswordResetSerializer,
-    ConfirmEmailSerializer,
 )
 
 # from .tasks import send_to_token_async

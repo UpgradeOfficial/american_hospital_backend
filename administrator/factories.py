@@ -1,7 +1,9 @@
 import factory
-from .models import Administrator
+
 from user.factories import UserFactory
 from user.models import User
+
+from .models import Administrator
 
 
 class AdministratorFactory(factory.django.DjangoModelFactory):

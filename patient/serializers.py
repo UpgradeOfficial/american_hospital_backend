@@ -1,14 +1,15 @@
-from patient.models import Patient
-from user.models import User
-from user.serializers import UserRegistrationSerializer, UserProfileSerializer
 from rest_framework.serializers import (
-    ModelSerializer,
     CharField,
+    ChoiceField,
     DateField,
     EmailField,
-    ChoiceField,
     FileField,
+    ModelSerializer,
 )
+
+from patient.models import Patient
+from user.models import User
+from user.serializers import UserProfileSerializer, UserRegistrationSerializer
 
 
 class PatientRegistrationSerializer(UserRegistrationSerializer):

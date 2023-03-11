@@ -10,7 +10,7 @@ from django.urls import reverse
 from core.utils import ExpiringActivationTokenGenerator
 from user.models import User
 
-from .factories import create_test_user, user_password, create_test_password_reset_token
+from .factories import create_test_password_reset_token, create_test_user, user_password
 from .test_literals import user_registration_info
 
 # Create your tests here.

@@ -1,9 +1,10 @@
 from rest_framework import generics
+from rest_framework.permissions import IsAuthenticated
+
+from administrator.permissions import AdministratorPermission
 from patient.models import Patient
 
 from .serializers import PatientProfileDetailsSerializer, PatientRegistrationSerializer
-from rest_framework.permissions import IsAuthenticated
-from administrator.permissions import AdministratorPermission
 
 
 class PatientRegistrationView(generics.CreateAPIView):

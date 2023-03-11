@@ -1,6 +1,8 @@
-from user.factories import create_test_user, UserFactory
-from .models import Patient
 import factory
+
+from user.factories import UserFactory, create_test_user
+
+from .models import Patient
 
 
 class PatientFactory(factory.django.DjangoModelFactory):

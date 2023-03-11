@@ -1,10 +1,11 @@
+import logging
 from datetime import datetime, timedelta
+
 from cryptography.fernet import Fernet, InvalidToken
 from django.conf import settings
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 from rest_framework.exceptions import ValidationError
-import logging
 
 
 class ExpiringActivationTokenGenerator:

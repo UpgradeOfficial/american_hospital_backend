@@ -1,8 +1,10 @@
-import factory
 import random
 from datetime import date, datetime, timedelta
+
+import factory
+
 from core.utils import ExpiringActivationTokenGenerator
-from user.models import User, PasswordResetWhitelist
+from user.models import PasswordResetWhitelist, User
 
 user_password = "aaaaaaaaaaa"
 

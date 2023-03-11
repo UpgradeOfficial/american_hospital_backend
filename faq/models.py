@@ -1,7 +1,7 @@
 from django.db import models
-from user.models import User
 
 from core.models import CoreModel
+from user.models import User
 
 
 class FAQ(CoreModel):

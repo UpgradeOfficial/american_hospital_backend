@@ -1,10 +1,13 @@
 import datetime
+
+from django.test import TestCase
 from django.urls import reverse
+
+from administrator.factories import AdministratorFactory
+from user.models import User
+
 from .factories import PatientFactory
 from .models import Patient
-from user.models import User
-from django.test import TestCase
-from administrator.factories import AdministratorFactory
 
 
 class TestPatientRegistration(TestCase):

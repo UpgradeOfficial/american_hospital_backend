@@ -1,9 +1,11 @@
 from django.test import TestCase
 from django.urls import reverse
-from .models import FAQ
-from .factories import FAQFactory
+
 from administrator.factories import AdministratorFactory
 from patient.factories import PatientFactory
+
+from .factories import FAQFactory
+from .models import FAQ
 
 # Create your tests here.
 

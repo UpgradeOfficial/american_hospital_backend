@@ -1,5 +1,6 @@
-from . import views
 from django.urls import path
+
+from . import views
 
 urlpatterns = [
     path("", views.TestimonialCreateView.as_view(), name="create"),

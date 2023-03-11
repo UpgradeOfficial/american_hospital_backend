@@ -13,17 +13,17 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path, include, re_path
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.urls import include, path, re_path
+from django.views.static import serve
 from drf_spectacular.views import (
     SpectacularAPIView,
     SpectacularRedocView,
     SpectacularSwaggerView,
 )
-from django.conf import settings
-from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-from django.views.static import serve
-from django.conf.urls.static import static
 
 urlpatterns = [
     path(
@@ -50,6 +50,7 @@ urlpatterns = [
     path(settings.BACKEND_ADMIN_URL, admin.site.urls),
     path("user/", include(("user.urls", "user"), namespace="user")),
     path("patient/", include(("patient.urls", "patient"), namespace="patient")),
+    path("news/", include(("news.urls", "news"), namespace="news")),
     path("faq/", include(("faq.urls", "faq"), namespace="faq")),
     path(
         "testimonial/",

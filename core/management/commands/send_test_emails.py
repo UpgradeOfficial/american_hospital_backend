@@ -2,12 +2,12 @@ from django.contrib.auth.hashers import make_password
 from django.core.management.base import BaseCommand
 from django.db import transaction
 
+from user.factories import UserFactory
 from user.models import User
 from user.tasks import (
-    send_password_reset_mail_async,
     send_email_verification_mail_async,
+    send_password_reset_mail_async,
 )
-from user.factories import UserFactory
 
 
 @transaction.atomic

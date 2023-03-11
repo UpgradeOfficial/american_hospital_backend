@@ -1,10 +1,12 @@
+import logging
+
 from django.conf import settings
 from django.contrib.auth.models import AbstractUser
 from django.contrib.sites.models import Site
 from django.db import IntegrityError, models
 from django.utils.translation import gettext_lazy as _
 from rest_framework.exceptions import ValidationError
-import logging
+
 from core.models import CoreModel
 from core.utils import ExpiringActivationTokenGenerator, send_mail
 

@@ -11,12 +11,13 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 import os
-from pathlib import Path
-from django.utils.translation import gettext_lazy as _
-from decouple import config, Csv
-from corsheaders.defaults import default_headers
-from dj_database_url import parse as db_url
 from datetime import timedelta
+from pathlib import Path
+
+from corsheaders.defaults import default_headers
+from decouple import Csv, config
+from dj_database_url import parse as db_url
+from django.utils.translation import gettext_lazy as _
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -58,6 +59,7 @@ INSTALLED_APPS = [
     "testimonial",
     "administrator",
     "faq",
+    "news",
 ]
 
 MIDDLEWARE = [

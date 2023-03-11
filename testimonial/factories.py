@@ -1,6 +1,8 @@
 import factory
-from .models import Testimonial
+
 from user.factories import UserFactory
+
+from .models import Testimonial
 
 
 class TestimonialFactory(factory.django.DjangoModelFactory):

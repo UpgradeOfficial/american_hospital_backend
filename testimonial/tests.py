@@ -1,9 +1,12 @@
+from datetime import datetime
+
 from django.test import TestCase
 from django.urls import reverse
-from .factories import TestimonialFactory
+
 from administrator.factories import AdministratorFactory
 from patient.factories import PatientFactory
-from datetime import datetime
+
+from .factories import TestimonialFactory
 from .models import Testimonial
 
 
